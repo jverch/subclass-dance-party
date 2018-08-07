@@ -27,8 +27,8 @@ makeBlinkyDancer.prototype.step = function() {
   // this.$node.addClass('animated wobble');
 };
 
-makeDancer.prototype.lineUp = function() {
-  
+makeBlinkyDancer.prototype.lineUp = function(top, left) {
+  this.setPosition(top, left);
 };
 
 

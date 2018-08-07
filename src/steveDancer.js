@@ -25,5 +25,6 @@ makeSteveDancer.prototype.step = function() {
   //this.$node.toggle();
 };
 
-
-
+makeSteveDancer.prototype.lineUp = function(top, left) {
+  this.setPosition(top, left);
+};

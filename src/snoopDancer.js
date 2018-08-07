@@ -25,5 +25,7 @@ makeSnoopDancer.prototype.step = function() {
   //this.$node.addClass('animated');
 };
 
-
+makeSnoopDancer.prototype.lineUp = function(top, left) {
+  this.setPosition(top - 50, left);
+};
 
