@@ -26,6 +26,15 @@ makeSnoopDancer.prototype.step = function() {
 };
 
 makeSnoopDancer.prototype.lineUp = function(top, left) {
-  this.setPosition(top, left);
+  this.setPosition(top, left + 40);
 };
 
+makeSnoopDancer.prototype.interact = function() {
+  // if (this.$node.hasClass('animated')) {
+  //   this.$node.toggleClass('animated rubberBand');
+  // }
+  //this.$node.toggleClass('animated rubberBand');
+  // this.$node.addClass("animated wobble")
+  this.$node.slideToggle(500);
+
+};

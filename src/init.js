@@ -22,7 +22,7 @@ $(document).ready(function() {
 
     // make a dancer with a random position
     var dancer = new dancerMakerFunction(
-      $('body').height() * Math.random() * 0.9,
+      $('body').height() * Math.random() * 0.85 + 30,
       $('body').width() * Math.random() * 0.9,
       Math.random() * 1000
     );
@@ -50,7 +50,7 @@ $(document).ready(function() {
       Math.pow(currTopPos - Math.floor(window.dancers[0].top), 2));
 
     
-    for (var i = 1; i < window.dancers.length; i++) {
+    for (var i = 0; i < window.dancers.length; i++) {
 
       var distanceCheck = Math.sqrt(Math.pow(currLeftPos - Math.floor(window.dancers[i].left), 2) + 
       Math.pow(currTopPos - Math.floor(window.dancers[i].top), 2))
@@ -64,10 +64,11 @@ $(document).ready(function() {
       }
     }
 
-    console.log(closestDancer);
-
+    console.log(currentDancer);
     // currentDancer.interact()
-    // closestDancer.interact()
+    if (closestDancer !== undefined) {
+      closestDancer.interact()
+    }
   });
 });
 

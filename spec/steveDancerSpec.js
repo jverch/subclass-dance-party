@@ -12,11 +12,14 @@ describe('steveDancer', function() {
     expect(steveDancer.$node).to.be.an.instanceof(jQuery);
   });
 
-  it('should have a step function that makes its node blink', function() {
-    sinon.spy(steveDancer.$node, 'toggle');
-    steveDancer.step();
-    expect(steveDancer.$node.toggle.called).to.be.true;
+  it('should have a lineup function', function() {
+    expect(steveDancer.lineUp).to.exist
   });
+
+  it('should have an interact function', function() {
+    expect(steveDancer.interact).to.exist
+  });
+
 
   describe('dance', function() {
     it('should call step at least once per second', function() {

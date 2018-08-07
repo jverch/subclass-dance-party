@@ -31,4 +31,14 @@ makeBlinkyDancer.prototype.lineUp = function(top, left) {
   this.setPosition(top, left);
 };
 
+makeBlinkyDancer.prototype.interact = function() {
+  // if (this.$node.hasClass('animated')) {
+  //   this.$node.toggleClass('animated rubberBand');
+  // }
+  //this.$node.toggleClass('animated rubberBand');
+  // this.$node.addClass("animated wobble")
+  this.$node.fadeToggle(500);
+
+};
+
 

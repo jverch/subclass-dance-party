@@ -16,6 +16,7 @@ body, a:link, a:visited, a:active{
 
 a {
   text-decoration: none !important;
+  z-index: 1; position:relative;
 }
 .title, .addDancerButton, .lineUpButton {
   padding:5px 12px;
@@ -32,12 +33,12 @@ a {
 .title{
   color: white;
   background-color: rgba(204, 204, 204, 0);
+  z-index: 1; position:relative;
 }
 
 .dancer {
   /* border:10px solid red;
   border-radius:10px; */
-  margin-left: -200px;
   position:absolute;
   /* position-anchor: 50% 50%; */
 }

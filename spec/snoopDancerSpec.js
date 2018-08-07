@@ -12,6 +12,14 @@ describe('snoopDancer', function() {
     expect(snoopDancer.$node).to.be.an.instanceof(jQuery);
   });
 
+  it('should have a lineup function', function() {
+    expect(snoopDancer.lineUp).to.exist
+  });
+
+  it('should have an interact function', function() {
+    expect(snoopDancer.interact).to.exist
+  });
+
   describe('dance', function() {
     it('should call step at least once per second', function() {
       sinon.spy(snoopDancer, 'step');

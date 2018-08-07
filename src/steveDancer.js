@@ -28,3 +28,11 @@ makeSteveDancer.prototype.step = function() {
 makeSteveDancer.prototype.lineUp = function(top, left) {
   this.setPosition(top, left);
 };
+
+makeSteveDancer.prototype.interact = function() {
+
+  this.$node.animate({
+    opacity: 0.5
+  }, 500);
+
+};
