@@ -1,7 +1,7 @@
-var makeFlipDancer = function(top, left, timeBetweenSteps) {
-  // this = Object.create(makeFlipDancer.prototype);
-  
+var makeSnoopDancer = function(top, left, timeBetweenSteps) {
+  // this = Object.create(makeSnoopDancer.prototype);
   makeDancer.call(this, top, left, timeBetweenSteps);
+  this.$node.prepend('<img src=./snoopDancer.gif>');
 
 
   // we plan to overwrite the step function below, but we still want the superclass step behavior to work,
@@ -9,13 +9,13 @@ var makeFlipDancer = function(top, left, timeBetweenSteps) {
 
 };
 
-makeFlipDancer.prototype = Object.create(makeDancer.prototype);
-makeFlipDancer.prototype.constructor = makeFlipDancer;
+makeSnoopDancer.prototype = Object.create(makeDancer.prototype);
+makeSnoopDancer.prototype.constructor = makeSnoopDancer;
 
 
-makeFlipDancer.prototype.oldStep = makeDancer.prototype.step;
+makeSnoopDancer.prototype.oldStep = makeDancer.prototype.step;
 
-makeFlipDancer.prototype.step = function() {
+makeSnoopDancer.prototype.step = function() {
   // call the old version of step at the beginning of any call to this new version of step
 
   this.oldStep.call(this);
