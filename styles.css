@@ -20,8 +20,11 @@ body, a:link, a:visited, a:active{
 .title{
   background-color: #777;
 }
-.dancer{
-  border:10px solid red;
-  border-radius:10px;
+
+.dancer {
+  /* border:10px solid red;
+  border-radius:10px; */
+  margin-left: -200px;
   position:absolute;
+  /* position-anchor: 50% 50%; */
 }
