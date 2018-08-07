@@ -28,7 +28,6 @@ $(document).ready(function() {
     );
     window.dancers.push(dancer);
     $('body').append(dancer.$node);
-    console.log(window.dancers);
   });
 
   $('.lineUpButton').on('click', function(event) {
@@ -38,6 +37,37 @@ $(document).ready(function() {
       window.dancers[i].lineUp($('body').height() * .4, startPosition);
       startPosition += increment;
     }
+  });
+
+  $('body').on('mouseover', 'div.dancer', function() {
+    // This refers to the dancer div
+    var closestDancer;
+    var currentDancer = $(this);
+    var currTopPos = Math.floor(currentDancer.position().top);
+    var currLeftPos = Math.floor(currentDancer.position().left);
+
+    var shortestDistance = Math.sqrt(Math.pow(currLeftPos - Math.floor(window.dancers[0].left), 2) + 
+      Math.pow(currTopPos - Math.floor(window.dancers[0].top), 2));
+
+    
+    for (var i = 1; i < window.dancers.length; i++) {
+
+      var distanceCheck = Math.sqrt(Math.pow(currLeftPos - Math.floor(window.dancers[i].left), 2) + 
+      Math.pow(currTopPos - Math.floor(window.dancers[i].top), 2))
+
+      if (shortestDistance === 0) {
+        shortestDistance = distanceCheck;
+        closestDancer = window.dancers[i];
+      } else if (distanceCheck < shortestDistance && distanceCheck !== 0) {
+        shortestDistance = distanceCheck;
+        closestDancer = window.dancers[i];
+      }
+    }
+
+    console.log(closestDancer);
+
+    // currentDancer.interact()
+    // closestDancer.interact()
   });
 });
 
