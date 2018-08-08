@@ -43,15 +43,18 @@ $(document).ready(function() {
     // This refers to the dancer div
     var closestDancer;
     var currentDancer = $(this);
+
+    console.log(currentDancer);
+
     var currTopPos = Math.floor(currentDancer.position().top);
     var currLeftPos = Math.floor(currentDancer.position().left);
 
-    var shortestDistance = Math.sqrt(Math.pow(currLeftPos - Math.floor(window.dancers[0].left), 2) + 
-      Math.pow(currTopPos - Math.floor(window.dancers[0].top), 2));
-
+    var shortestDistance = 0;
     
-    for (var i = 0; i < window.dancers.length; i++) {
+    // Math.sqrt(Math.pow(currLeftPos - Math.floor(window.dancers[0].left), 2) + 
+    //   Math.pow(currTopPos - Math.floor(window.dancers[0].top), 2));
 
+    for (var i = 0; i < window.dancers.length; i++) {
       var distanceCheck = Math.sqrt(Math.pow(currLeftPos - Math.floor(window.dancers[i].left), 2) + 
       Math.pow(currTopPos - Math.floor(window.dancers[i].top), 2))
 
@@ -64,7 +67,7 @@ $(document).ready(function() {
       }
     }
 
-    console.log(currentDancer);
+    
     // currentDancer.interact()
     if (closestDancer !== undefined) {
       closestDancer.interact()
