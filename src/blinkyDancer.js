@@ -29,6 +29,8 @@ makeBlinkyDancer.prototype.step = function() {
 
 makeBlinkyDancer.prototype.lineUp = function(top, left) {
   this.setPosition(top, left);
+  this.top = top;
+  this.left = left;
 };
 
 makeBlinkyDancer.prototype.interact = function() {

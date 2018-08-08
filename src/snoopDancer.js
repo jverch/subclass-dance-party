@@ -27,6 +27,8 @@ makeSnoopDancer.prototype.step = function() {
 
 makeSnoopDancer.prototype.lineUp = function(top, left) {
   this.setPosition(top, left + 40);
+  this.top = top;
+  this.left = left + 40;
 };
 
 makeSnoopDancer.prototype.interact = function() {

@@ -42,35 +42,59 @@ $(document).ready(function() {
   $('body').on('mouseover', 'div.dancer', function() {
     // This refers to the dancer div
     var closestDancer;
+    var secondClosestDancer;
     var currentDancer = $(this);
 
-    console.log(currentDancer);
+    console.log('dancers first: ', window.dancers);
 
     var currTopPos = Math.floor(currentDancer.position().top);
     var currLeftPos = Math.floor(currentDancer.position().left);
 
     var shortestDistance = 0;
-    
-    // Math.sqrt(Math.pow(currLeftPos - Math.floor(window.dancers[0].left), 2) + 
-    //   Math.pow(currTopPos - Math.floor(window.dancers[0].top), 2));
+    var secondShortestDistance = 0;
 
-    for (var i = 0; i < window.dancers.length; i++) {
-      var distanceCheck = Math.sqrt(Math.pow(currLeftPos - Math.floor(window.dancers[i].left), 2) + 
-      Math.pow(currTopPos - Math.floor(window.dancers[i].top), 2))
+    //   var distanceCheck = Math.sqrt(Math.pow(currLeftPos - Math.floor(window.dancers[i].left), 2) + 
+    //   Math.pow(currTopPos - Math.floor(window.dancers[i].top), 2))
 
-      if (shortestDistance === 0) {
-        shortestDistance = distanceCheck;
-        closestDancer = window.dancers[i];
-      } else if (distanceCheck < shortestDistance && distanceCheck !== 0) {
-        shortestDistance = distanceCheck;
-        closestDancer = window.dancers[i];
+    var compare = function(dancer1, dancer2) {
+      var dancer1Distance = Math.sqrt(Math.pow(currLeftPos - Math.floor(dancer1.left), 2) + 
+        Math.pow(currTopPos - Math.floor(dancer1.top), 2));
+      var dancer2Distance = Math.sqrt(Math.pow(currLeftPos - Math.floor(dancer2.left), 2) + 
+        Math.pow(currTopPos - Math.floor(dancer2.top), 2));
+
+      if (dancer1Distance < dancer2Distance) {
+        return -1;
       }
+      if (dancer1Distance > dancer2Distance) {
+        return 1;
+      }
+      return 0;
     }
+
+    window.dancers.sort(compare);
+    // console.log('dancers second: ', window.dancers);
+
+    // for (var i = 0; i < window.dancers.length; i++) {
+    //   var distanceCheck = Math.sqrt(Math.pow(currLeftPos - Math.floor(window.dancers[i].left), 2) + 
+    //   Math.pow(currTopPos - Math.floor(window.dancers[i].top), 2))
+
+    //   if (shortestDistance === 0) {
+    //     shortestDistance = distanceCheck;
+    //     closestDancer = window.dancers[i];
+    //   } else if (distanceCheck < shortestDistance && distanceCheck !== 0) {
+    //     shortestDistance = distanceCheck;
+    //     closestDancer = window.dancers[i];
+    //   }
+    // }
 
     
     // currentDancer.interact()
-    if (closestDancer !== undefined) {
-      closestDancer.interact()
+    if (window.dancers[1] !== undefined) {
+      window.dancers[1].interact();
+    }
+
+    if (window.dancers[2] !== undefined) {
+      window.dancers[2].interact();
     }
   });
 });

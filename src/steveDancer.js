@@ -27,6 +27,8 @@ makeSteveDancer.prototype.step = function() {
 
 makeSteveDancer.prototype.lineUp = function(top, left) {
   this.setPosition(top, left);
+  this.top = top;
+  this.left = left;
 };
 
 makeSteveDancer.prototype.interact = function() {
